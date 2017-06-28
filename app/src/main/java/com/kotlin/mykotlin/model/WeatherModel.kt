@@ -3,7 +3,7 @@ package com.kotlin.mykotlin.model
 /**
  * Created by Gandi on 2017/6/22.
  */
-data class WeatherData(val curWeather: CurWeather, val weatherDetails: WeatherDetails, val forecastWeather: List<ForecastWeather>, val hourlyForecastWeather: List<HourlyForecastWeather>)
+data class WeatherData(val curWeather: CurWeather, val weatherDetails: WeatherDetails, val dayforecastWeather: List<DayForecastWeather>, val hourlyForecastWeather: List<HourlyForecastWeather>)
 
 data class CurWeather(val curCity: String, val curTemp: String, val conditions: String, val date: String, val tempRange: TempRange)
 
@@ -15,6 +15,6 @@ data class WeatherDetails(val sunrise: String, val sunset: String, val pop: Stri
 
 data class TempRange(val high: Int, val low: Int)
 
-data class ForecastWeather(val date: String, val conditions: String, val tempRange: TempRange, val icon_url: String, val pop: String)
+data class DayForecastWeather(val date: String, val conditions: String, val tempRange: TempRange, val icon_url: String, val pop: String)
 
 data class HourlyForecastWeather(val date: String, val conditions: String, val temp: String, val icon_url: String, val pop: String)

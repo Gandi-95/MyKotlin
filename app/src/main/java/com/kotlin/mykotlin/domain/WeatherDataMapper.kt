@@ -22,15 +22,15 @@ class WeatherDataMapper() {
     private fun convertWeatherDetailsToDomain(currentObservation: CurrentObservation, simpleForecastday: SimpleForecastday, sunPhase: SunPhase): WeatherDetails {
         return WeatherDetails(sunPhase.sunrise.hour + ":" + sunPhase.sunrise.minute, sunPhase.sunset.hour + ":" + sunPhase.sunset.minute, simpleForecastday.pop.toString(),
                 currentObservation.relative_humidity, simpleForecastday.avewind.dir, simpleForecastday.avewind.mph.toString(), currentObservation.heat_index_c.toString(),
-                currentObservation.precip_today_metric, currentObservation.pressure_mb.toString(), currentObservation.visibility_km, currentObservation.UV.toString())
+                currentObservation.precip_today_metric, currentObservation.pressure_mb, currentObservation.visibility_km, currentObservation.UV.toString())
     }
 
-    private fun convertForecastListToDomain(simpleForecast: SimpleForecast): List<ForecastWeather> {
+    private fun convertForecastListToDomain(simpleForecast: SimpleForecast): List<DayForecastWeather> {
         return simpleForecast.forecastday.map { convertForecastItemToDomain(it) }
     }
 
-    private fun convertForecastItemToDomain(simpleForecastDay: SimpleForecastday): ForecastWeather {
-        return ForecastWeather(simpleForecastDay.date.weekday, simpleForecastDay.conditions, TempRange(simpleForecastDay.high.celsius, simpleForecastDay.low.celsius),
+    private fun convertForecastItemToDomain(simpleForecastDay: SimpleForecastday): DayForecastWeather {
+        return DayForecastWeather(simpleForecastDay.date.weekday, simpleForecastDay.conditions, TempRange(simpleForecastDay.high.celsius, simpleForecastDay.low.celsius),
                 simpleForecastDay.icon_url, simpleForecastDay.pop.toString())
     }
 

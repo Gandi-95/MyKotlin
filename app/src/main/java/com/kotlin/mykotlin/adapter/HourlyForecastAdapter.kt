@@ -15,7 +15,7 @@ import org.jetbrains.anko.find
 /**
  * Created by Gandi on 2017/6/23.
  */
-class HourlyForecastAdapter(val hourlyForecastWeather: List<HourlyForecastWeather>) : RecyclerView.Adapter<HourlyForecastAdapter.ViewHolder>() {
+class HourlyForecastAdapter(val hourlyForecastWeather: MutableList<HourlyForecastWeather>) : RecyclerView.Adapter<HourlyForecastAdapter.ViewHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, p1: Int): ViewHolder? {
@@ -29,7 +29,7 @@ class HourlyForecastAdapter(val hourlyForecastWeather: List<HourlyForecastWeathe
     }
 
 
-    override fun getItemCount(): Int = if (hourlyForecastWeather.size > 0) hourlyForecastWeather.size else 0
+    override fun getItemCount(): Int = if(hourlyForecastWeather==null) 0 else hourlyForecastWeather.size
 
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -47,8 +47,8 @@ class HourlyForecastAdapter(val hourlyForecastWeather: List<HourlyForecastWeathe
 
         fun bindForecast(hourlyForecastWeather: HourlyForecastWeather){
             with(hourlyForecastWeather){
-                tv_hourly.text = date
-                tv_hourly_temp.text = temp
+                tv_hourly.text = date + itemView.context.resources.getString(R.string.time)
+                tv_hourly_temp.text = temp + itemView.context.resources.getString(R.string.unit)
                 Glide.with(itemView.context).load(icon_url).into(iv_hourly_icon)
             }
         }
