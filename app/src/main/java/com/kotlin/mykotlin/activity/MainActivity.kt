@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import com.kotlin.mykotlin.R
+import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.startActivity
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
@@ -20,8 +21,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
 
     fun init(){
-        kotlinx.android.synthetic.main.activity_main.courier.setOnClickListener(this)
-        kotlinx.android.synthetic.main.activity_main.weather.setOnClickListener(this)
+        courier.setOnClickListener(this)
+        weather.setOnClickListener(this)
     }
 
 
