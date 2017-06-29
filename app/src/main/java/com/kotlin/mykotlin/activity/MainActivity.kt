@@ -1,13 +1,10 @@
-package com.kotlin.mykotlin
+package com.kotlin.mykotlin.activity
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import com.kotlin.mykotlin.activity.CourierActivity
-import com.kotlin.mykotlin.activity.WeatherActivity
-import kotlinx.android.synthetic.main.activity_main.*
+import com.kotlin.mykotlin.R
 import org.jetbrains.anko.startActivity
-import kotlin.properties.Delegates
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
 
@@ -23,8 +20,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
 
     fun init(){
-        courier.setOnClickListener(this)
-        weather.setOnClickListener(this)
+        kotlinx.android.synthetic.main.activity_main.courier.setOnClickListener(this)
+        kotlinx.android.synthetic.main.activity_main.weather.setOnClickListener(this)
     }
 
 

@@ -46,7 +46,7 @@ class DayForecastAdapter(val dayForecastWeather: MutableList<DayForecastWeather>
             with(dayForecastWeather){
                 tv_day.text = dayForecastWeather.date
                 Glide.with(itemView.context).load(dayForecastWeather.icon_url).into(iv_day_icon)
-                tv_day_temp.text = dayForecastWeather.tempRange.high.toString()+"  "+dayForecastWeather.tempRange.low
+                tv_day_temp.text = dayForecastWeather.high.toString()+"  "+dayForecastWeather.low
             }
         }
     }

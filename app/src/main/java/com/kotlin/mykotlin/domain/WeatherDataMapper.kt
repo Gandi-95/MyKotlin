@@ -16,7 +16,7 @@ class WeatherDataMapper() {
 
     private fun convertCurWeatherToDomain(currentObservation: CurrentObservation, simpleForecastday: SimpleForecastday): CurWeather {
         return CurWeather(currentObservation.display_location.city, currentObservation.temp_c, currentObservation.weather, simpleForecastday.date.weekday,
-                TempRange(simpleForecastday.high.celsius, simpleForecastday.low.celsius))
+                simpleForecastday.high.celsius, simpleForecastday.low.celsius)
     }
 
     private fun convertWeatherDetailsToDomain(currentObservation: CurrentObservation, simpleForecastday: SimpleForecastday, sunPhase: SunPhase): WeatherDetails {
@@ -30,7 +30,7 @@ class WeatherDataMapper() {
     }
 
     private fun convertForecastItemToDomain(simpleForecastDay: SimpleForecastday): DayForecastWeather {
-        return DayForecastWeather(simpleForecastDay.date.weekday, simpleForecastDay.conditions, TempRange(simpleForecastDay.high.celsius, simpleForecastDay.low.celsius),
+        return DayForecastWeather(simpleForecastDay.date.weekday, simpleForecastDay.conditions, simpleForecastDay.high.celsius, simpleForecastDay.low.celsius,
                 simpleForecastDay.icon_url, simpleForecastDay.pop.toString())
     }
 

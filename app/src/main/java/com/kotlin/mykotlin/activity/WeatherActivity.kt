@@ -111,7 +111,7 @@ class WeatherActivity : AppCompatActivity() {
                     tv_cur_temp.text = curTemp + resources.getString(R.string.unit)
                     tv_cur_conditions.text = conditions
                     tv_today_time.text = date+"  今天"
-                    tv_today_temp.text = tempRange.high.toString()+"  "+tempRange.low
+                    tv_today_temp.text = high.toString()+"  "+low
                 }
 
                 with(weatherData.weatherDetails){
