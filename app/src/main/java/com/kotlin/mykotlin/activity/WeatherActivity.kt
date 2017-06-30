@@ -16,6 +16,9 @@ import org.jetbrains.anko.uiThread
 import kotlin.properties.Delegates
 import android.support.v7.widget.LinearLayoutManager
 import com.kotlin.mykotlin.adapter.DayForecastAdapter
+import com.kotlin.mykotlin.db.ForecastDb
+import com.kotlin.mykotlin.db.ForecastDbHelper
+import com.kotlin.mykotlin.db.WeatherDBDataMapper
 import com.kotlin.mykotlin.model.DayForecastWeather
 import kotlin.collections.ArrayList
 
@@ -103,6 +106,7 @@ class WeatherActivity : AppCompatActivity() {
     fun RefreshUi() {
         doAsync {
             val weatherData = WeatherUrlRequest(citys[i]).execute()
+            ForecastDb(ForecastDbHelper()).saveWeatherData(weatherData)
             if (i >= citys.size) i = 0 else i++
 
             uiThread {
