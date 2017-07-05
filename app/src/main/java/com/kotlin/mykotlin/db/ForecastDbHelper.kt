@@ -17,10 +17,10 @@ class ForecastDbHelper(ctx: Context = App.instance) : ManagedSQLiteOpenHelper(ct
     }
 
     override fun onCreate(db: SQLiteDatabase) {
-        db.createTable(CityTable.NAME, true, CityTable.ID to INTEGER + PRIMARY_KEY, CityTable.CITYNAME to TEXT)
+        db.createTable(CityTable.NAME, true, CityTable.ID to INTEGER + PRIMARY_KEY, CityTable.CITYNAME to TEXT, CityTable.LOCATION to TEXT, CityTable.ISCURCITY to INTEGER)
 
-        db.createTable(CurWeatherTable.NAME, true, CurWeatherTable.ID to INTEGER + PRIMARY_KEY, CurWeatherTable.CITYID to INTEGER, CurWeatherTable.CURCITY to TEXT,
-                CurWeatherTable.CURTEMP to TEXT, CurWeatherTable.CONDITIONS to TEXT, CurWeatherTable.DATE to TEXT, CurWeatherTable.HIGH to TEXT, CurWeatherTable.LOW to TEXT)
+        db.createTable(CurWeatherTable.NAME, true, CurWeatherTable.ID to INTEGER + PRIMARY_KEY, CurWeatherTable.CURCITY to TEXT, CurWeatherTable.CURTEMP to TEXT,
+                CurWeatherTable.CONDITIONS to TEXT, CurWeatherTable.DATE to TEXT, CurWeatherTable.HIGH to TEXT, CurWeatherTable.LOW to TEXT)
 
         db.createTable(WeatherDetailsTable.NAME, true, WeatherDetailsTable.ID to INTEGER, WeatherDetailsTable.SUNRISE to TEXT, WeatherDetailsTable.SUNSET to TEXT,
                 WeatherDetailsTable.POP to TEXT, WeatherDetailsTable.HUMIDITY to TEXT, WeatherDetailsTable.WINDDIR to TEXT, WeatherDetailsTable.AVEWIND to TEXT,

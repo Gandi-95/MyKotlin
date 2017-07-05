@@ -16,7 +16,7 @@ class WeatherDataMapper() {
 
     private fun convertCurWeatherToDomain(currentObservation: CurrentObservation, simpleForecastday: SimpleForecastday): CurWeather {
         return CurWeather(currentObservation.display_location.city, currentObservation.temp_c, currentObservation.weather, simpleForecastday.date.weekday,
-                simpleForecastday.high.celsius, simpleForecastday.low.celsius)
+                simpleForecastday.high.celsius.toString(), simpleForecastday.low.celsius.toString())
     }
 
     private fun convertWeatherDetailsToDomain(currentObservation: CurrentObservation, simpleForecastday: SimpleForecastday, sunPhase: SunPhase): WeatherDetails {
@@ -30,7 +30,7 @@ class WeatherDataMapper() {
     }
 
     private fun convertForecastItemToDomain(simpleForecastDay: SimpleForecastday): DayForecastWeather {
-        return DayForecastWeather(simpleForecastDay.date.weekday, simpleForecastDay.conditions, simpleForecastDay.high.celsius, simpleForecastDay.low.celsius,
+        return DayForecastWeather(simpleForecastDay.date.weekday, simpleForecastDay.conditions, simpleForecastDay.high.celsius.toString(), simpleForecastDay.low.celsius.toString(),
                 simpleForecastDay.icon_url, simpleForecastDay.pop.toString())
     }
 
@@ -42,4 +42,14 @@ class WeatherDataMapper() {
         return HourlyForecastWeather(hourlyForecast.FCTTIME.hour, hourlyForecast.condition, hourlyForecast.temp.metric, hourlyForecast.icon_url, hourlyForecast.pop.toString())
     }
 
+
+    fun convertCityListToDomain(cityPosition: CityPosition): List<City> {
+        return cityPosition.geocodes.map { convertCityItemToDomain(it) }
+    }
+
+    private fun convertCityItemToDomain(geocodes: Geocodes): City {
+        val locationSplit = geocodes.location.split(",")
+        val location = locationSplit[1] + "," + locationSplit[0]
+        return City(1, geocodes.city, location, 0)
+    }
 }

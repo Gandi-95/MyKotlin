@@ -7,12 +7,13 @@ object CityTable{
     val NAME = "City"
     val ID = "_id"
     val CITYNAME = "cityName"
+    val LOCATION = "location"
+    val ISCURCITY = "isCurCity"
 }
 
 object CurWeatherTable{
     val NAME = "CurWeather"
     val ID = "_id"
-    val CITYID = "cityId"
     val CURCITY = "curCity"
     val CURTEMP = "curTemp"
     val CONDITIONS = "conditions"
