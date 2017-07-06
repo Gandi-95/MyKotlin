@@ -16,15 +16,20 @@
         android:orientation="vertical">
 
         <Button
-            android:id="@+id/courier"
+            android:id="@+id/btn_courier"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="快递"/>
         <Button
-            android:id="@+id/weather"
+            android:id="@+id/btn_weather"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="天气"/>
+
+        <Button
+            android:id="@+id/btn_recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
     </LinearLayout>
 

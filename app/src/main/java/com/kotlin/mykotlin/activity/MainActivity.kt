@@ -21,8 +21,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
 
     fun init(){
-        courier.setOnClickListener(this)
-        weather.setOnClickListener(this)
+        btn_courier.setOnClickListener(this)
+        btn_weather.setOnClickListener(this)
     }
 
 

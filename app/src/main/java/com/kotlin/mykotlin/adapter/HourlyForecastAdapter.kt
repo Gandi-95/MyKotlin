@@ -46,7 +46,7 @@ class HourlyForecastAdapter(val hourlyForecastWeather: MutableList<HourlyForecas
         }
 
         fun bindForecast(hourlyForecastWeather: HourlyForecastWeather){
-            with(hourlyForecastWeather){
+             with(hourlyForecastWeather){
                 tv_hourly.text = date + itemView.context.resources.getString(R.string.time)
                 tv_hourly_temp.text = temp + itemView.context.resources.getString(R.string.unit)
                 Glide.with(itemView.context).load(icon_url).into(iv_hourly_icon)
